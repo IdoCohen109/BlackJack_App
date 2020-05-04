@@ -168,17 +168,18 @@ function getPoints(player) {
     var points = 0;
     for (var i = 0; i < players[player].Hand.length; i++) {
         points += players[player].Hand[i].Weight;
-        if (points == 21 && firstHandFlag == 1) {
-            bank += (winValue * 1.5);
-            stay();
-        } else if (points > 21) {
-            if ((players[player].Hand[0].Value == players[player].Hand[1].Value) && (players[player].Hand[1].Value == "A")) {
-                players[player].Hand[1].Weight = 1;
-                points -= 10;
-            }
-        }
     }
     players[player].Points = points;
+    if (players[0].Points == 21 && firstHandFlag == 1) {
+        console.log("win value * 1.5 is on")
+        bank += (winValue * 1.5);
+        stay();
+    } else if (players[player].Points > 21) {
+        if ((players[player].Hand[0].Value == players[player].Hand[1].Value) && (players[player].Hand[1].Value == "A")) {
+            players[player].Hand[1].Weight = 1;
+            points -= 10;
+        }
+    }
     return points;
 }
 
