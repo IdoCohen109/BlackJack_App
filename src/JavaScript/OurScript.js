@@ -315,3 +315,35 @@ function clearPlayers() {
 //need to check the checkPoints() and updateBank() routing
 // after deal() need to return the border to the current player
 //check again why dealer is hit again after (2 first cards = 16 --> need to hit) --> (3 cards = 20 --> no need to hit, need to check why dealer hit again)
+
+
+
+
+// start game
+// create deck and cards
+// create player - initialize
+// deal 2 cards to each player --> for 2 first cards only 21 or below *(if dealer got 21 on 2 first cards than we continue play until dealer turn)
+// border the current player (Active)
+// check players points (if dealer got 21 on 2 first cards than we continue play until dealer turn)
+// if below 21 - current player can hit or stay
+// if hit - add 1 card to current player
+// check results
+// keep hit and check till above 21 or stay
+// if stay - current player ++ (dealer)
+// active class move to dealer
+// check dealer points 
+// if below 17 --> hit
+// hit until 17 or above --> (hit button disable)
+// if over 17 --> check results (if equal to 21, compare 2 players)
+
+
+
+// if player 1 has won --> update Bank 
+// if player 1 has won in 2 first cards --> win_prize * 1.5
+// if dealer won --> player 1 Bank need to be reduce 
+
+// Deal button --> clear deck - create deck - shuffle - init points - init hands - start blackjack 
+
+
+
+// Bank need to be global
