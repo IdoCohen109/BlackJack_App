@@ -4,16 +4,12 @@
 // deck = Array of Objects of Cards, each card is an object with properties of Value, Suite and weight
 
 //Win Value
-const winValue = 100;
-<<<<<<< HEAD
+let winValue = 100;
 const lossValue = -100;
-=======
-
->>>>>>> blackjack app 1st css session
 
 // Creating the Cards
 const suits = ["Spades", "Hearts", "Diamonds", "Clubs"];
-const cardValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+const cardValues = ["8", "9", "K", "A"];
 
 //Players 
 let players = new Array();
@@ -131,6 +127,7 @@ function dealFirstHand() {
             players[x].Hand.push(card);
             renderCard(card, x);
             updatePoints();
+            checkWeight();
         }
     }
     updateDeck();
@@ -154,10 +151,6 @@ function getCardUI(card) {
     else
         icon = '&clubs;';
     el.className = 'card';
-<<<<<<< HEAD
-=======
-
->>>>>>> blackjack app 1st css session
     el.innerHTML = card.Value + '<br/>' + icon;
     return el;
 }
@@ -169,6 +162,22 @@ function updatePoints() {
         getPoints(i);
         document.getElementById('points_' + i).innerHTML = players[i].Points;
     }
+
+}
+
+//function check special cases of combinations
+function checkWeight() {
+    players.forEach(player => {
+        if (players[player].Hand.Points > 21) {
+            if ((players[player].Hand[0].Value == players[player].Hand[1].Value) && (players[player].Hand[1].Value == "A")) {
+                players[player].Hand[1].Weight = 1;
+                players[player].Hand.Points -= 10;
+            }
+        } else if (players[player].Hand.Points > 10 && players[player].Hand[Hand.length - 1].Value == "A") {
+            players[player].Hand[Hand.length - 1].Weight = 1;
+            players[player].Hand.Points -= 10;
+        }
+    })
 }
 
 // returns the number of points that a player has in hand
@@ -180,13 +189,8 @@ function getPoints(player) {
     players[player].Points = points;
     if (players[0].Points == 21 && firstHandFlag == 1) {
         console.log("win value * 1.5 is on")
-        bank += (winValue * 1.5);
+        winValue *= 1.5;
         stay();
-    } else if (players[player].Points > 21) {
-        if ((players[player].Hand[0].Value == players[player].Hand[1].Value) && (players[player].Hand[1].Value == "A")) {
-            players[player].Hand[1].Weight = 1;
-            points -= 10;
-        }
     }
     return points;
 }
@@ -216,7 +220,7 @@ function hit() {
 //Stay function
 function stay() {
     document.getElementById("deal").removeAttribute("disabled");
-    document.getElementById('player_' + currentPlayer).classList.remove('active');
+    document.getElementById('player_' + 0).classList.remove('active');
     currentPlayer++;
     document.getElementById('player_' + dealer).classList.add('active');
     if (players[0].Points > 21) {
@@ -271,32 +275,17 @@ function endGameDisplay() {
     document.getElementById("status").style.display = "block";
     document.getElementById("hitBtn").disabled = true;
     document.getElementById("stayBtn").disabled = true;
-<<<<<<< HEAD
     document.getElementById("bank").innerHTML = `Bank: ${bank}$`;
 }
 
 function deal() {
-
-=======
-    if (bank <= 0) {
-        document.getElementById("status").innerHTML = `You Got Broke! No Money left to gamble`;
-        document.getElementById("deal").setAttribute("disabled", "");
-    } else {
-        document.getElementById("bank").innerHTML = `Bank: ${bank}$`;
-    }
-}
-
-function deal() {
->>>>>>> blackjack app 1st css session
+    firstHandFlag = 1;
     document.getElementById("status").innerHTML = '';
     document.getElementById('player_' + dealer).classList.remove('active');
     currentPlayer = 0;
     // document.getElementById('player_' + 0).classList.add('active');
     clearPlayers();
-<<<<<<< HEAD
-=======
-    document.getElementById("deal").setAttribute("disabled", "");
->>>>>>> blackjack app 1st css session
+    document.getElementById('deal').setAttribute('disabled', '');
 }
 
 function clearPlayers() {
@@ -311,11 +300,8 @@ function clearPlayers() {
     createPlayersUI();
     dealFirstHand();
     document.getElementById('player_' + 0).classList.add('active');
-<<<<<<< HEAD
-=======
 }
 
-function restart() {
+function newGame() {
     location.reload();
->>>>>>> blackjack app 1st css session
 }

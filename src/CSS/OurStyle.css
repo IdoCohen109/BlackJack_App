@@ -1,3 +1,116 @@
+<<<<<<< HEAD
 .active {
     border: 2px #47F solid;
+=======
+:root {
+    background-color: #058f3a;
+    font-size: 62.5%;
+    /*equal to 10 px*/
+    font-family: 'Indie Flower', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.game {
+    background-color: #058f3a;
+}
+
+.active {
+    border: 2px #47F solid;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    /*for stack thing one above the other - used for high scores*/
+}
+
+
+/*vertical and horizontal alignment*/
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardsDeck,
+.bank {
+    max-width: 22rem;
+    background: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #222;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px #222 solid;
+    margin-bottom: 2rem;
+}
+
+
+
+/* dealer cards */
+.close-card {
+    background-color: red;
+    padding: 10 px;
+}
+
+.card {
+    background-color: #fff;
+    border: 0.1rem solid #070707;
+    width: 70px;
+    height: 100px;
+    font-size: 2.3rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    font-weight: bold;
+}
+
+div[id^="hand"] {
+    display: flex;
+}
+
+.btn {
+    font-size: 1.5rem;
+    /*18 pixels*/
+    border-radius: 15px 50px;
+    min-width: 9rem;
+    text-align: center;
+    border: 1px solid #070707;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #111;
+    background-color: white;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(96, 10, 122);
+    color: #FFF;
+    box-shadow: 0 0.6rem 1.5rem 0 rgba(31, 7, 247, 0.5);
+    transform: translateY(-0.1rem);
+    /*for the button to get up a little bit while hovering*/
+    transition: transform 150ms;
+    /*it will take to the button 150ms to be up, so it is looks like animation*/
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+footer {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 5rem;
+>>>>>>> blackjack app 1st css session
 }
